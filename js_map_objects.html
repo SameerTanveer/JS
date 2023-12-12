@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>JavaScript Map Objects</h2>
+    <p>Creating a Map from an Array:</p>
+
+    <p id="demo"></p>
+
+    <script>
+      const footballers = new Map([
+        ["Leo", 1],
+        ["Cr7", 2],
+        ["Neymar", 3],
+      ]);
+
+      footballers.set("Mbappe", 4);
+
+      document.getElementById("demo").innerHTML = footballers.get("Leo");
+      document.getElementById("demo").innerHTML = footballers.get("Mbappe");
+
+      document.getElementById("demo").innerHTML = footballers.get("Cr7");
+      //Ronaldo key is 2
+
+      //set method can also be used to change exisiting Map values
+      footballers.set("Cr7", 7);
+      //Ronaldo key becomes 7
+      document.getElementById("demo").innerHTML = footballers.get("Cr7");
+
+      //The size property returns the number of elements in a Map object
+      document.getElementById("demo").innerHTML = footballers.size;
+
+      //The has() method returns true if an element with the specified key exists in the Map object; otherwise it returns false.
+      document.getElementById("demo").innerHTML = footballers.has("Leo");
+
+      //The delete() method removes the specified element from a Map object.
+      footballers.delete("Leo");
+      document.getElementById("demo").innerHTML = footballers.size;
+    </script>
+  </body>
+</html>
