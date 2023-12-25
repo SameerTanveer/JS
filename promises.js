@@ -7,8 +7,8 @@ const fetchData = new Promise((resolve, reject) => {
   // Inside the Promise, a setTimeout is used to simulate an asynchronous operation
   // After the timeout, the resolve function is called with a string representing the fetched data.
   setTimeout(() => {
-    const data = "My Name is Khan";
-    resolve(data);
+    const data = "Error 404";
+    reject(data);
   }, 2000);
 });
 
