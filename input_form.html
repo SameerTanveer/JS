@@ -12,11 +12,26 @@
         <input type="text" id ="password" >
 
 
-        <button type="button" onclick=Button() > Click here </button>
+        <button type="button" onclick=storeInput() > Click here </button>
     </form>
 
     
     <script>
+
+        function storeInput()
+        {
+            array = []
+            input1 = document.getElementById("username");
+            input2 = document.getElementById("password");
+
+            value1 = username.value
+            value2 = password.value
+
+            array.push(value1,value2)
+
+            console.log(array);
+        }
+
         function Button()
         {
             console.log("You have clicked")
