@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<head>
+  <title>Expense Calculator</title>
+</head>
+
+<body>
+  <h1>Expense Calculator</h1>
+  <label for="YearDropdown">Select Current Year:</label>
+  <select id="YearDropdown"></select>
+  <button type="button" onclick="SaveCurrentYear()">Save Current Year</button>
+  <br />
+  <br />
+
+  <label for="CalculationUptoYear">Select year upto calculation</label>
+  <select id="CalculationUptoYear"></select>
+  <button type="button" onclick="SaveSelectedYear()">
+    Save Calculated Year
+  </button>
+
+  <br />
+  <br />
+  <label for="Months">Enter your monthly expenses below</label>
+  <!-- JANUARY   -->
+  <br />
+  <br />
+  <label for="JanExpense ">JANUARY</label>
+  <label for="JanStart">&nbsp&nbspFrom</label>
+  <input type="number" id="JanStart" name="JanStart" />
+  <label for="JanEnd">&nbsp&nbspTo</label>
+  <input type="number" id="JanEnd" name="JanEnd" />
+  <!-- FEBRUARY -->
+  <br />
+  <br />
+  <label for="FebExpense ">FEBRUARY</label>
+  <label for="FebStart">&nbsp&nbspFrom</label>
+  <input type="number" id="FebStart" name="FebStart" />
+  <label for="FebEnd">&nbsp&nbspTo</label>
+  <input type="number" id="FebEnd" name="FebEnd" />
+  <!-- MARCH -->
+  <br />
+  <br />
+  <label for="MarchExpense ">MARCH</label>
+  <label for="MarchStart">&nbsp&nbspFrom</label>
+  <input type="number" id="MarchStart" name="MarchStart" />
+  <label for="MarchEnd">&nbsp&nbspTo</label>
+  <input type="number" id="MarchEnd" name="MarchEnd" />
+  <!-- APRIL -->
+  <br />
+  <br />
+  <label for="AprilExpense ">APRIL</label>
+  <label for="AprilStart">&nbsp&nbspFrom</label>
+  <input type="number" id="AprilStart" name="AprilStart" />
+  <label for="AprilEnd">&nbsp&nbspTo</label>
+  <input type="number" id="AprilEnd" name="AprilEnd" />
+  <!-- MAY -->
+  <br />
+  <br />
+  <label for="MayExpense ">MAY</label>
+  <label for="MayStart">&nbsp&nbspFrom</label>
+  <input type="number" id="MayStart" name="MayStart" />
+  <label for="MayEnd">&nbsp&nbspTo</label>
+  <input type="number" id="MayEnd" name="MayEnd" />
+  <!-- JUNE -->
+  <br />
+  <br />
+  <label for="JuneExpense ">JUNE</label>
+  <label for="JuneStart">&nbsp&nbspFrom</label>
+  <input type="number" id="JuneStart" name="JuneStart" />
+  <label for="JuneEnd">&nbsp&nbspTo</label>
+  <input type="number" id="JuneEnd" name="JuneEnd" />
+  <!-- JULY -->
+  <br />
+  <br />
+  <label for="JulyExpense ">JULY</label>
+  <label for="JulyStart">&nbsp&nbspFrom</label>
+  <input type="number" id="JulyStart" name="JulyStart" />
+  <label for="JulyEnd">&nbsp&nbspTo</label>
+  <input type="number" id="JulyEnd" name="JulyEnd" />
+  <!-- AUGUST -->
+  <br />
+  <br />
+  <label for="AugustExpense ">AUGUST</label>
+  <label for="AugustStart">&nbsp&nbspFrom</label>
+  <input type="number" id="AugustStart" name="AugustStart" />
+  <label for="AugustEnd">&nbsp&nbspTo</label>
+  <input type="number" id="AugustEnd" name="AugustEnd" />
+  <!-- SEPTEMBER -->
+  <br />
+  <br />
+  <label for="SeptemberExpense ">SEPTEMBER</label>
+  <label for="SeptemberStart">&nbsp&nbspFrom</label>
+  <input type="number" id="SeptemberStart" name="SeptemberStart" />
+  <label for="SeptemberEnd">&nbsp&nbspTo</label>
+  <input type="number" id="SeptemberEnd" name="SeptemberEnd" />
+  <!-- OCTOBER -->
+  <br />
+  <br />
+  <label for="OctoberExpense ">OCTOBER</label>
+  <label for="OctoberStart">&nbsp&nbspFrom</label>
+  <input type="number" id="OctoberStart" name="OctoberStart" />
+  <label for="OctoberEnd">&nbsp&nbspTo</label>
+  <input type="number" id="OctoberEnd" name="OctoberEnd" />
+  <!-- NOVEMBER -->
+  <br />
+  <br />
+  <label for="NovemberExpense ">NOVEMBER</label>
+  <label for="NovemberStart">&nbsp&nbspFrom</label>
+  <input type="number" id="NovemberStart" name="NovemberStart" />
+  <label for="NovemberEnd">&nbsp&nbspTo</label>
+  <input type="number" id="NovemberEnd" name="NovemberEnd" />
+  <!-- DECEMBER -->
+  <br />
+  <br />
+  <label for="DecemberExpense ">DECEMBER</label>
+  <label for="DecemberStart">&nbsp&nbspFrom</label>
+  <input type="number" id="DecemberStart" name="DecemberStart" />
+  <label for="DecemberEnd">&nbsp&nbspTo</label>
+  <input type="number" id="DecemberEnd" name="DecemberEnd" />
+  <!-- TOTAL -->
+  <br />
+  <label for="TotalExpense "></label>
+  <label for="TotalStart"></label>
+  <label for="TotalEnd"></label>
+  <!-- SUBMIT -->
+  <br />
+  <button type="button" onclick="SaveExpense()">Save Expense</button>
+</body>
+
+<script>
+
+let JanAvg, FebAvg, MarchAvg, AprilAvg, MayAvg, JuneAvg, JulyAvg, AugustAvg, SeptemberAvg, OctoberAvg, NovemberAvg, DecemberAvg, TotalAvg = 0;
+
+  function YearDropdown() {
+    var YearDropdown = document.getElementById("YearDropdown");
+    for (var i = 2023; i < 2034; i++) {
+      var option = document.createElement("option");
+      option.text = i;
+      YearDropdown.add(option);
+    }
+  }
+  function CalculationUptoYear() {
+    var CalculationUptoYear = document.getElementById("CalculationUptoYear");
+    for (var i = 2023; i < 2034; i++) {
+      var option = document.createElement("option");
+      option.text = i;
+      CalculationUptoYear.add(option);
+    }
+  }
+
+  function SaveCurrentYear() {
+    var YearDropdown = document.getElementById("YearDropdown");
+    var CurrentYear = YearDropdown.options[YearDropdown.selectedIndex].text;
+    console.log(CurrentYear);
+  }
+
+  function SaveSelectedYear() {
+    var CalculationUptoYear = document.getElementById("CalculationUptoYear");
+    var SelectedYear =
+      CalculationUptoYear.options[CalculationUptoYear.selectedIndex].text;
+    console.log(SelectedYear);
+  }
+
+  function SaveExpense()
+  {
+    let JanStart = parseFloat(document.getElementById("JanStart").value) ;
+    let JanEnd = parseFloat(document.getElementById("JanEnd").value) ;
+    let FebStart = parseFloat(document.getElementById("FebStart").value) ;
+    let FebEnd = parseFloat(document.getElementById("FebEnd").value) ;
+    let MarchStart = parseFloat(document.getElementById("MarchStart").value) ;
+    let MarchEnd = parseFloat(document.getElementById("MarchEnd").value) ;
+    let AprilStart = parseFloat(document.getElementById("AprilStart").value) ;
+    let AprilEnd = parseFloat(document.getElementById("AprilEnd").value) ;
+    let MayStart = parseFloat(document.getElementById("MayStart").value) ;
+    let MayEnd = parseFloat(document.getElementById("MayEnd").value) ;
+    let JuneStart = parseFloat(document.getElementById("JuneStart").value) ;
+    let JuneEnd = parseFloat(document.getElementById("JuneEnd").value) ;
+    let JulyStart = parseFloat(document.getElementById("JulyStart").value) ;
+    let JulyEnd = parseFloat(document.getElementById("JulyEnd").value) ;
+    let AugustStart = parseFloat(document.getElementById("AugustStart").value) ;
+    let AugustEnd = parseFloat(document.getElementById("AugustEnd").value) ;
+    let SeptemberStart = parseFloat(document.getElementById("SeptemberStart").value) ;
+    let SeptemberEnd = parseFloat(document.getElementById("SeptemberEnd").value) ;
+    let OctoberStart = parseFloat(document.getElementById("OctoberStart").value) ;
+    let OctoberEnd = parseFloat(document.getElementById("OctoberEnd").value) ;
+    let NovemberStart = parseFloat(document.getElementById("NovemberStart").value) ;
+    let NovemberEnd = parseFloat(document.getElementById("NovemberEnd").value) ;
+    let DecemberStart = parseFloat(document.getElementById("DecemberStart").value) ;
+    let DecemberEnd = parseFloat(document.getElementById("DecemberEnd").value) ;
+
+
+    console.log("JAN Start:",JanStart);
+    console.log("JAN End:",JanEnd);
+    console.log("Feb Start:",FebStart);
+    console.log("Feb End:",FebEnd);
+    console.log("March Start:",MarchStart);
+    console.log("March End:",MarchEnd);
+    console.log("April Start:",AprilStart);
+    console.log("April End:",AprilEnd);
+    console.log("May Start:",MayStart);
+    console.log("May End:",MayEnd);
+    console.log("June Start:",JuneStart);
+    console.log("June End:",JuneEnd);
+    console.log("July Start:",JulyStart);
+    console.log("July End:",JulyEnd);
+    console.log("August Start:",AugustStart);
+    console.log("August End:",AugustEnd);
+    console.log("September Start:",SeptemberStart);
+    console.log("September End:",SeptemberEnd);
+    console.log("October Start:",OctoberStart);
+    console.log("October End:",OctoberEnd);
+    console.log("November Start:",NovemberStart);
+    console.log("November End:",NovemberEnd);
+    console.log("December Start:",DecemberStart);
+    console.log("December End:",DecemberEnd);
+    SumExpense();
+
+  }
+
+  function SumExpense() {
+        console.log("Sum of Expenses");
+        JanAvg = (JanStart + JanEnd) / 2;
+        console.log("January Expense:", JanAvg);
+        FebAvg = (FebStart + FebEnd) / 2;
+        console.log("February Expense:", FebAvg);
+        MarchAvg = (MarchStart + MarchEnd) / 2;
+        console.log("March Expense:", MarchAvg);
+        AprilAvg = (AprilStart + AprilEnd) / 2;
+        console.log("April Expense:", AprilAvg);
+        MayAvg = (MayStart + MayEnd) / 2;
+        console.log("May Expense:", MayAvg);
+        JuneAvg = (JuneStart + JuneEnd) / 2;
+        console.log("June Expense:", JuneAvg);
+        JulyAvg = (JulyStart + JulyEnd) / 2;
+        console.log("July Expense:", JulyAvg);
+        AugustAvg = (AugustStart + AugustEnd) / 2;
+        console.log("August Expense:", AugustAvg);
+        SeptemberAvg = (SeptemberStart + SeptemberEnd) / 2;
+        console.log("September Expense:", SeptemberAvg);
+        OctoberAvg = (OctoberStart + OctoberEnd) / 2;
+        console.log("October Expense:", OctoberAvg);
+        NovemberAvg = (NovemberStart + NovemberEnd) / 2;
+        console.log("November Expense:", NovemberAvg);
+        DecemberAvg = (DecemberStart + DecemberEnd) / 2;
+        console.log("December Expense:", DecemberAvg);
+        TotalAvg = JanAvg + FebAvg + MarchAvg + AprilAvg + MayAvg + JuneAvg + JulyAvg + AugustAvg + SeptemberAvg + OctoberAvg + NovemberAvg + DecemberAvg;
+        console.log("Total Expense:", TotalAvg);
+    }
+
+
+  YearDropdown();
+  CalculationUptoYear();
+  SaveExpense();
+</script>
