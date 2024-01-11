@@ -6,7 +6,7 @@
 <body>
   <h1>Expense Calculator</h1>
   <label for="YearDropdown">Select Current Year:</label>
-  <select id="YearDropdown"></select>
+  <select id="YearDropdown" onchange = "CalculationUptoYear()"></select>
   <button type="button" onclick="SaveCurrentYear()">Save Current Year</button>
   <br />
   <br />
@@ -130,22 +130,28 @@
 
 let JanAvg, FebAvg, MarchAvg, AprilAvg, MayAvg, JuneAvg, JulyAvg, AugustAvg, SeptemberAvg, OctoberAvg, NovemberAvg, DecemberAvg, TotalAvg = 0;
 
-  function YearDropdown() {
-    var YearDropdown = document.getElementById("YearDropdown");
-    for (var i = 2023; i < 2034; i++) {
-      var option = document.createElement("option");
-      option.text = i;
-      YearDropdown.add(option);
+let startYear = 2024;
+let endYear = 2035; 
+
+function YearDropdown() {
+    let YearDropdown = document.getElementById("YearDropdown");
+    for (let i = startYear; i <= endYear; i++) {
+        let option = document.createElement("option");
+        option.text = i;
+        YearDropdown.add(option);
     }
-  }
-  function CalculationUptoYear() {
-    var CalculationUptoYear = document.getElementById("CalculationUptoYear");
-    for (var i = 2023; i < 2034; i++) {
-      var option = document.createElement("option");
-      option.text = i;
-      CalculationUptoYear.add(option);
+}
+
+function CalculationUptoYear() {
+    let CalculationUptoYear = document.getElementById("CalculationUptoYear");
+    CalculationUptoYear.innerHTML = "";
+    let selectedStartYear = parseInt(document.getElementById("YearDropdown").value);
+    for (let i = selectedStartYear + 1; i <= endYear; i++) {
+        let option = document.createElement("option");
+        option.text = i;
+        CalculationUptoYear.add(option);
     }
-  }
+}
 
   function SaveCurrentYear() {
     var YearDropdown = document.getElementById("YearDropdown");
@@ -162,30 +168,30 @@ let JanAvg, FebAvg, MarchAvg, AprilAvg, MayAvg, JuneAvg, JulyAvg, AugustAvg, Sep
 
   function SaveExpense()
   {
-    let JanStart = parseFloat(document.getElementById("JanStart").value) ;
-    let JanEnd = parseFloat(document.getElementById("JanEnd").value) ;
-    let FebStart = parseFloat(document.getElementById("FebStart").value) ;
-    let FebEnd = parseFloat(document.getElementById("FebEnd").value) ;
-    let MarchStart = parseFloat(document.getElementById("MarchStart").value) ;
-    let MarchEnd = parseFloat(document.getElementById("MarchEnd").value) ;
-    let AprilStart = parseFloat(document.getElementById("AprilStart").value) ;
-    let AprilEnd = parseFloat(document.getElementById("AprilEnd").value) ;
-    let MayStart = parseFloat(document.getElementById("MayStart").value) ;
-    let MayEnd = parseFloat(document.getElementById("MayEnd").value) ;
-    let JuneStart = parseFloat(document.getElementById("JuneStart").value) ;
-    let JuneEnd = parseFloat(document.getElementById("JuneEnd").value) ;
-    let JulyStart = parseFloat(document.getElementById("JulyStart").value) ;
-    let JulyEnd = parseFloat(document.getElementById("JulyEnd").value) ;
-    let AugustStart = parseFloat(document.getElementById("AugustStart").value) ;
-    let AugustEnd = parseFloat(document.getElementById("AugustEnd").value) ;
-    let SeptemberStart = parseFloat(document.getElementById("SeptemberStart").value) ;
-    let SeptemberEnd = parseFloat(document.getElementById("SeptemberEnd").value) ;
-    let OctoberStart = parseFloat(document.getElementById("OctoberStart").value) ;
-    let OctoberEnd = parseFloat(document.getElementById("OctoberEnd").value) ;
-    let NovemberStart = parseFloat(document.getElementById("NovemberStart").value) ;
-    let NovemberEnd = parseFloat(document.getElementById("NovemberEnd").value) ;
-    let DecemberStart = parseFloat(document.getElementById("DecemberStart").value) ;
-    let DecemberEnd = parseFloat(document.getElementById("DecemberEnd").value) ;
+    JanStart = parseFloat(document.getElementById("JanStart").value) ;
+    JanEnd = parseFloat(document.getElementById("JanEnd").value) ;
+    FebStart = parseFloat(document.getElementById("FebStart").value) ;
+    FebEnd = parseFloat(document.getElementById("FebEnd").value) ;
+    MarchStart = parseFloat(document.getElementById("MarchStart").value) ;
+    MarchEnd = parseFloat(document.getElementById("MarchEnd").value) ;
+    AprilStart = parseFloat(document.getElementById("AprilStart").value) ;
+    AprilEnd = parseFloat(document.getElementById("AprilEnd").value) ;
+    MayStart = parseFloat(document.getElementById("MayStart").value) ;
+    MayEnd = parseFloat(document.getElementById("MayEnd").value) ;
+    JuneStart = parseFloat(document.getElementById("JuneStart").value) ;
+    JuneEnd = parseFloat(document.getElementById("JuneEnd").value) ;
+    JulyStart = parseFloat(document.getElementById("JulyStart").value) ;
+    JulyEnd = parseFloat(document.getElementById("JulyEnd").value) ;
+    AugustStart = parseFloat(document.getElementById("AugustStart").value) ;
+    AugustEnd = parseFloat(document.getElementById("AugustEnd").value) ;
+    SeptemberStart = parseFloat(document.getElementById("SeptemberStart").value) ;
+    SeptemberEnd = parseFloat(document.getElementById("SeptemberEnd").value) ;
+    OctoberStart = parseFloat(document.getElementById("OctoberStart").value) ;
+    OctoberEnd = parseFloat(document.getElementById("OctoberEnd").value) ;
+    NovemberStart = parseFloat(document.getElementById("NovemberStart").value) ;
+    NovemberEnd = parseFloat(document.getElementById("NovemberEnd").value) ;
+    DecemberStart = parseFloat(document.getElementById("DecemberStart").value) ;
+    DecemberEnd = parseFloat(document.getElementById("DecemberEnd").value) ;
 
 
     console.log("JAN Start:",JanStart);
