@@ -124,6 +124,9 @@
   <!-- SUBMIT -->
   <br />
   <button type="button" onclick="SaveExpense()">Save Expense</button>
+  <!-- RELOAD -->
+  <button type="button" onclick="Reload()">Reload</button>
+
 </body>
 
 <script>
@@ -169,29 +172,53 @@ function CalculationUptoYear() {
   function SaveExpense()
   {
     JanStart = parseFloat(document.getElementById("JanStart").value) ;
+    JanStart = localStorage.setItem("JanStart", JanStart);
     JanEnd = parseFloat(document.getElementById("JanEnd").value) ;
+    JanEnd = localStorage.setItem("JanEnd", JanEnd);
     FebStart = parseFloat(document.getElementById("FebStart").value) ;
+    FebStart = localStorage.setItem("FebStart", FebStart);
     FebEnd = parseFloat(document.getElementById("FebEnd").value) ;
+    FebEnd = localStorage.setItem("FebEnd", FebEnd);
     MarchStart = parseFloat(document.getElementById("MarchStart").value) ;
+    MarchStart = localStorage.setItem("MarchStart", MarchStart);
     MarchEnd = parseFloat(document.getElementById("MarchEnd").value) ;
+    MarchEnd = localStorage.setItem("MarchEnd", MarchEnd);
     AprilStart = parseFloat(document.getElementById("AprilStart").value) ;
+    AprilStart = localStorage.setItem("AprilStart", AprilStart);
     AprilEnd = parseFloat(document.getElementById("AprilEnd").value) ;
+    AprilEnd = localStorage.setItem("AprilEnd", AprilEnd);
     MayStart = parseFloat(document.getElementById("MayStart").value) ;
+    MayStart = localStorage.setItem("MayStart", MayStart);
     MayEnd = parseFloat(document.getElementById("MayEnd").value) ;
+    MayEnd = localStorage.setItem("MayEnd", MayEnd);
     JuneStart = parseFloat(document.getElementById("JuneStart").value) ;
+    JuneStart = localStorage.setItem("JuneStart", JuneStart);
     JuneEnd = parseFloat(document.getElementById("JuneEnd").value) ;
+    JuneEnd = localStorage.setItem("JuneEnd", JuneEnd);
     JulyStart = parseFloat(document.getElementById("JulyStart").value) ;
+    JulyStart = localStorage.setItem("JulyStart", JulyStart);
     JulyEnd = parseFloat(document.getElementById("JulyEnd").value) ;
+    JulyEnd = localStorage.setItem("JulyEnd", JulyEnd);
     AugustStart = parseFloat(document.getElementById("AugustStart").value) ;
+    AugustStart = localStorage.setItem("AugustStart", AugustStart);
     AugustEnd = parseFloat(document.getElementById("AugustEnd").value) ;
+    AugustEnd = localStorage.setItem("AugustEnd", AugustEnd);
     SeptemberStart = parseFloat(document.getElementById("SeptemberStart").value) ;
+    SeptemberStart = localStorage.setItem("SeptemberStart", SeptemberStart);
     SeptemberEnd = parseFloat(document.getElementById("SeptemberEnd").value) ;
+    SeptemberEnd = localStorage.setItem("SeptemberEnd", SeptemberEnd);
     OctoberStart = parseFloat(document.getElementById("OctoberStart").value) ;
+    OctoberStart = localStorage.setItem("OctoberStart", OctoberStart);
     OctoberEnd = parseFloat(document.getElementById("OctoberEnd").value) ;
+    OctoberEnd = localStorage.setItem("OctoberEnd", OctoberEnd);
     NovemberStart = parseFloat(document.getElementById("NovemberStart").value) ;
+    NovemberStart = localStorage.setItem("NovemberStart", NovemberStart);
     NovemberEnd = parseFloat(document.getElementById("NovemberEnd").value) ;
+    NovemberEnd = localStorage.setItem("NovemberEnd", NovemberEnd);
     DecemberStart = parseFloat(document.getElementById("DecemberStart").value) ;
+    DecemberStart = localStorage.setItem("DecemberStart", DecemberStart);
     DecemberEnd = parseFloat(document.getElementById("DecemberEnd").value) ;
+    DecemberEnd = localStorage.setItem("DecemberEnd", DecemberEnd);
 
 
     console.log("JAN Start:",JanStart);
@@ -224,32 +251,50 @@ function CalculationUptoYear() {
 
   function SumExpense() {
         console.log("Sum of Expenses");
-        JanAvg = (JanStart + JanEnd) / 2;
+        JanAvg = localStorage.getItem("JanStart") + localStorage.getItem("JanEnd") / 2;
+        JanAvg = localStorage.setItem("JanAvg", JanAvg);
         console.log("January Expense:", JanAvg);
-        FebAvg = (FebStart + FebEnd) / 2;
+        FebAvg = localStorage.getItem("FebStart") + localStorage.getItem("FebEnd") / 2;
+        FebAvg = localStorage.setItem("FebAvg", FebAvg);
         console.log("February Expense:", FebAvg);
-        MarchAvg = (MarchStart + MarchEnd) / 2;
+        MarchAvg = localStorage.getItem("MarchStart") + localStorage.getItem("MarchEnd") / 2;
+        MarchAvg = localStorage.setItem("MarchAvg", MarchAvg);
         console.log("March Expense:", MarchAvg);
-        AprilAvg = (AprilStart + AprilEnd) / 2;
+        AprilAvg = localStorage.getItem("AprilStart") + localStorage.getItem("AprilEnd") / 2;
+        AprilAvg = localStorage.setItem("AprilAvg", AprilAvg);
         console.log("April Expense:", AprilAvg);
-        MayAvg = (MayStart + MayEnd) / 2;
+        MayAvg = localStorage.getItem("MayStart") + localStorage.getItem("MayEnd") / 2;
+        MayAvg = localStorage.setItem("MayAvg", MayAvg);
         console.log("May Expense:", MayAvg);
-        JuneAvg = (JuneStart + JuneEnd) / 2;
+        JuneAvg = localStorage.getItem("JuneStart") + localStorage.getItem("JuneEnd") / 2;
+        JuneAvg = localStorage.setItem("JuneAvg", JuneAvg);
         console.log("June Expense:", JuneAvg);
-        JulyAvg = (JulyStart + JulyEnd) / 2;
+        JulyAvg = localStorage.getItem("JulyStart") + localStorage.getItem("JulyEnd") / 2;  
+        JulyAvg = localStorage.setItem("JulyAvg", JulyAvg);
         console.log("July Expense:", JulyAvg);
-        AugustAvg = (AugustStart + AugustEnd) / 2;
+        AugustAvg = localStorage.getItem("AugustStart") + localStorage.getItem("AugustEnd") / 2;
+        AugustAvg = localStorage.setItem("AugustAvg", AugustAvg);
         console.log("August Expense:", AugustAvg);
-        SeptemberAvg = (SeptemberStart + SeptemberEnd) / 2;
+        SeptemberAvg = localStorage.getItem("SeptemberStart") + localStorage.getItem("SeptemberEnd") / 2;
+        SeptemberAvg = localStorage.setItem("SeptemberAvg", SeptemberAvg);
         console.log("September Expense:", SeptemberAvg);
-        OctoberAvg = (OctoberStart + OctoberEnd) / 2;
+        OctoberAvg = localStorage.getItem("OctoberStart") + localStorage.getItem("OctoberEnd") / 2;
+        OctoberAvg = localStorage.setItem("OctoberAvg", OctoberAvg);
         console.log("October Expense:", OctoberAvg);
-        NovemberAvg = (NovemberStart + NovemberEnd) / 2;
+        NovemberAvg = localStorage.getItem("NovemberStart") + localStorage.getItem("NovemberEnd") / 2;
+        NovemberAvg = localStorage.setItem("NovemberAvg", NovemberAvg);
         console.log("November Expense:", NovemberAvg);
-        DecemberAvg = (DecemberStart + DecemberEnd) / 2;
+        DecemberAvg = localStorage.getItem("DecemberStart") + localStorage.getItem("DecemberEnd") / 2;
+        DecemberAvg = localStorage.setItem("DecemberAvg", DecemberAvg);
         console.log("December Expense:", DecemberAvg);
-        TotalAvg = JanAvg + FebAvg + MarchAvg + AprilAvg + MayAvg + JuneAvg + JulyAvg + AugustAvg + SeptemberAvg + OctoberAvg + NovemberAvg + DecemberAvg;
+        TotalAvg = localStorage.getItem("JanAvg") + localStorage.getItem("FebAvg") + localStorage.getItem("MarchAvg") + localStorage.getItem("AprilAvg") + localStorage.getItem("MayAvg") + localStorage.getItem("JuneAvg") + localStorage.getItem("JulyAvg") + localStorage.getItem("AugustAvg") + localStorage.getItem("SeptemberAvg") + localStorage.getItem("OctoberAvg") + localStorage.getItem("NovemberAvg") + localStorage.getItem("DecemberAvg");
+        TotalAvg = localStorage.setItem("TotalAvg", TotalAvg);
         console.log("Total Expense:", TotalAvg);
+    }
+
+  function Reload() {
+    localStorage.clear();
+    location.reload();
     }
 
 
